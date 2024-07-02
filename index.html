@@ -1,37 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--data-bs-theme="dark" sets Dark Theme-->
+<html lang="en" data-bs-theme="dark">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BlazorApp1</title>
-    <base href="/BlazorTest/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css?v=1" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-icons.min.css?v=2" />
-    <link rel="stylesheet" href="css/app.css?v=1" />
+    <title>BlazorApp</title>
+    <!-- If you would like to publish on GitHub Pages:
+    - Set href="/<repo_name>/";
+    - Create an empty ".nojekyll"" file in root directory; -->
+    <base href="/" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css?v=20240629_1" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-icons.min.css?v=20240629_1" />
+    <link rel="stylesheet" href="css/app.css?v=20240629_1" />
     <link rel="icon" type="image/png" href="favicon.png" />
-    <link href="BlazorApp1.styles.css" rel="stylesheet" />
-    <link href="manifest.webmanifest" rel="manifest" />
-    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <link href="BlazorApp.styles.css" rel="stylesheet" />
 </head>
 
 <body>
+
     <div id="app">
-        <svg class="loading-progress">
-            <circle r="40%" cx="50%" cy="50%" />
-            <circle r="40%" cx="50%" cy="50%" />
-        </svg>
-        <div class="loading-progress-text"></div>
+        <!-- Loading Screen -->
+        <div class="loading-screen">
+            <div class="loading-screen-logo"></div>
+            <div class="loading-screen-progress"></div>
+        </div>
     </div>
 
-    <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
+    <!-- Custom blazor-error-ui -->
+    <div id="blazor-error-ui" class="alert alert-danger alert-dismissible fade show fixed-bottom mb-0" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+        <span>An unhandled error has occurred.</span>  <a href="" class="alert-link">Reload Page</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" title="Close"></button>
     </div>
+
+    <!-- JavaScript scripts -->
     <script src="_framework/blazor.webassembly.js"></script>
-    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- LocalSession Storage Manager -->
+    <script src="js/localSessionStorageManager.js"></script>
+    <!-- Theme Manager -->
+    <script src="js/themeManager.js"></script>
 </body>
 
 </html>
