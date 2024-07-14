@@ -1,22 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BlazorApp</title>
+    <!-- If you would like to publish on GitHub Pages:
+    - Set href="/<repo_name>/";
+    - Create an empty ".nojekyll"" file in root directory; -->
     <base href="/BlazorTest/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/app.css" />
+    <!-- Toggle theme without flickering -->
+    <script src="js/loadTheme.min.js"></script>
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css?v=20240714_1" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-icons.min.css?v=20240714_1" />
+    <link rel="stylesheet" href="css/app.min.css?v=20240629_1" />
     <link href="BlazorApp.styles.css" rel="stylesheet" />
 </head>
 
 <body>
     <div id="app">
-       <p>Four Oh Four</p> 
+        <!-- Loading Screen -->
+        <div class="loading-screen">
+            <div class="loading-screen-logo"></div>
+            <div class="loading-screen-progress"></div>
+        </div>
     </div>
+
+    <!-- Custom blazor-error-ui -->
+    <div id="blazor-error-ui" class="alert alert-danger alert-dismissible fade show fixed-bottom mb-0" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+        <span>An unhandled error has occurred.</span>  <a href="" class="alert-link">Reload Page</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" title="Close"></button>
+    </div>
+
+    <!-- JavaScript scripts -->
     <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

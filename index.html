@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--data-bs-theme="dark" sets Dark Theme-->
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="">
 
 <head>
     <meta charset="UTF-8" />
@@ -9,17 +8,19 @@
     <!-- If you would like to publish on GitHub Pages:
     - Set href="/<repo_name>/";
     - Create an empty ".nojekyll"" file in root directory; -->
-    <base href="/BlazorTest/"/>
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css?v=20240629_1" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-icons.min.css?v=20240629_1" />
-    <link rel="stylesheet" href="css/app.css?v=20240629_1" />
+    <base href="/BlazorTest/" />
+    <!-- Toggle theme without flickering -->
+    <script src="js/loadTheme.min.js"></script>
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png" />
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css?v=20240714_1" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-icons.min.css?v=20240714_1" />
+    <link rel="stylesheet" href="css/app.min.css?v=20240629_1" />
     <link href="BlazorApp.styles.css" rel="stylesheet" />
 </head>
 
 <body>
-
     <div id="app">
         <!-- Loading Screen -->
         <div class="loading-screen">
@@ -38,8 +39,6 @@
     <!-- JavaScript scripts -->
     <script src="_framework/blazor.webassembly.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- Theme Manager -->
-    <script src="js/themeManager.js"></script>
 </body>
 
 </html>

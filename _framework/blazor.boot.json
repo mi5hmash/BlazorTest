@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "BlazorApp",
   "resources": {
-    "hash": "sha256-Z3d9MOjJqXZ7R1QmKiw6V+6sgYVml93TXdcZtJ/C0UI=",
+    "hash": "sha256-A1JOmjJhs2Lb+/fIaPGeVcSug2vFde6giTCL4uTUd+U=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.l8wu07i09n.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "BlazorApp.wasm": "sha256-zPKk8YdpEmNi0K7v9A+DCFzt/HwCxj2nYX22QmUzr8Q=",
+      "BlazorApp.wasm": "sha256-v+nJveNsq2a4V6dsQiakmgAFDcX0A+r2+dv6ZGO7gOA=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-67RKY4pqsj4lT8WGdmmjtFBeawbFlp2if+S5YHzFwmc=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-F/n9GTX/vglGrHh0hWY89F1Gv5MvN5csRRwRY4Y1SNA=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-5S3KbjVenLPkOR7NiE3ynNgFyE0hfp+CYYtF40HQ7F0=",
