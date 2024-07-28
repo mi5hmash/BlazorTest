@@ -1,0 +1,81 @@
+﻿@page "/counter"
+@inject WebStorageManagerService WebStorageManager
+@code { private const string PageTitle = "Counter"; }
+
+<PageTitle>@PageTitle</PageTitle>
+
+@if (!_pageInitialized)
+{
+    <LoadingPopup Message="Loading component..."/>
+}
+else
+{
+    <h1>@PageTitle</h1>
+
+    <p class="h5 my-3" role="status">Value: <strong>@_counterValueV</strong></p>
+
+    <div class="d-flex gap-3 flex-wrap">
+        <div class="d-flex gap-2">
+            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(Step1)">+@Step1</button>
+            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(Step2)">+@Step2</button>
+            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(Step3)">+@Step3</button>
+            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(Step4)">+@Step4</button>
+        </div>
+        
+        <div class="input-group">
+            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(_step5)"><i class="bi bi-plus-circle"></i></button>
+            <input class="form-control" style="max-width:175px;" maxlength="10" type="number" min="@uint.MinValue" max="@uint.MaxValue" @bind="_step5">
+        </div>
+        
+        <div>
+            <button class="btn btn-secondary" @onclick="ClearCount">Clear</button>
+            <button class="btn btn-danger" @onclick="ThrowException">Throw Exception</button>
+        </div>
+    </div>
+}
+
+@code {
+    private const uint Step1 = 1;
+    private const uint Step2 = 2;
+    private const uint Step3 = 5;
+    private const uint Step4 = 10;
+    private uint _step5;
+
+    #region Settings
+
+    // Counter Value
+    private const string CounterValueK = "counterValue";
+    private uint _counterValueV;
+
+    #endregion
+
+    private bool _pageInitialized;
+    protected override async Task OnInitializedAsync()
+    {
+        // Initialize WebStorageManager
+        await WebStorageManager.InitializeAsync();
+        // Get values from the web storage
+        _counterValueV = await WebStorageManager.GetLocalStorageSecuredItemAsync<uint>(CounterValueK, 0);
+        // Mark the page as initialized
+        _pageInitialized = true;
+    }
+
+    #region Actions
+
+    private async Task IncrementValue(uint step)
+    {
+        _counterValueV += step;
+        await WebStorageManager.SetLocalStorageSecuredItemAsync(CounterValueK, _counterValueV);
+    }
+
+    private async Task ClearCount()
+    {
+        _counterValueV = 0;
+        await WebStorageManager.SetLocalStorageSecuredItemAsync(CounterValueK, _counterValueV);
+    }    
+    
+    private static void ThrowException()
+        => throw new ArgumentException("You pressed the wrong button.");
+
+    #endregion
+}

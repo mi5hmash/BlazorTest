@@ -1,0 +1,29 @@
+﻿@inherits LayoutComponentBase
+
+<div class="d-flex flex-row vh-100">
+    <NavSidebar />
+    <div class="flex-grow-1">
+        @* Page Content *@
+        <main class="m-3">
+            @* Exception Handler *@
+            <CustomErrorBoundary @ref="_errorBoundary" Context="Exception">
+                <ChildContent>
+                    @Body
+                </ChildContent>
+                <ErrorContent>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                        <span class="fw-bold">@Exception.GetType():</span> @Exception.Message
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" title="Recover" @onclick="@_errorBoundary.Recover"></button>
+                    </div>
+                </ErrorContent>
+            </CustomErrorBoundary>
+        </main>
+    </div>
+</div>
+
+@code
+{
+    // Code for Exception Handler
+    private ErrorBoundary _errorBoundary = new();
+}
