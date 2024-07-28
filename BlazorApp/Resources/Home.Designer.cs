@@ -61,20 +61,20 @@ namespace BlazorApp.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Welcome to my new Blazor App..
-        /// </summary>
-        public static string Description {
-            get {
-                return ResourceManager.GetString("Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Hello, stranger!.
         /// </summary>
         public static string Greeting {
             get {
                 return ResourceManager.GetString("Greeting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Welcome to my new Blazor WebAssembly App..
+        /// </summary>
+        public static string GreetingDescription {
+            get {
+                return ResourceManager.GetString("GreetingDescription", resourceCulture);
             }
         }
         

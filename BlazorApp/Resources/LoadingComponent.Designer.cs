@@ -22,14 +22,14 @@ namespace BlazorApp.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Settings {
+    public class LoadingComponent {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Settings() {
+        internal LoadingComponent() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace BlazorApp.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BlazorApp.Resources.Settings", typeof(Settings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BlazorApp.Resources.LoadingComponent", typeof(LoadingComponent).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,65 +61,11 @@ namespace BlazorApp.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Are you sure?.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Loading component....
         /// </summary>
-        public static string AreYouSure {
+        public static string ComponentLoading {
             get {
-                return ResourceManager.GetString("AreYouSure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Clear Settings.
-        /// </summary>
-        public static string ClearSettings {
-            get {
-                return ResourceManager.GetString("ClearSettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Stored settings will be removed and the application will return to its initial state..
-        /// </summary>
-        public static string ClearSettingsModalDescription {
-            get {
-                return ResourceManager.GetString("ClearSettingsModalDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Language.
-        /// </summary>
-        public static string Language {
-            get {
-                return ResourceManager.GetString("Language", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Settings.
-        /// </summary>
-        public static string PageTitle {
-            get {
-                return ResourceManager.GetString("PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Purge.
-        /// </summary>
-        public static string Purge {
-            get {
-                return ResourceManager.GetString("Purge", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Theme.
-        /// </summary>
-        public static string Theme {
-            get {
-                return ResourceManager.GetString("Theme", resourceCulture);
+                return ResourceManager.GetString("ComponentLoading", resourceCulture);
             }
         }
     }

@@ -1,10 +1,10 @@
 ﻿@inject IStringLocalizer<Resources.ModalDialog> Loc
 
-<div class="modal fade" id="@ModalId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="@ModalId + 'Label'" aria-hidden="true">
+<div class="modal fade" id="@ModalId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="@($"{ModalId}Label")" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="@ModalId + 'Label'">@Title</h1>
+                <h1 class="modal-title fs-5" id="@($"{ModalId}Label")">@Title</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Loc["Close"]"></button>
             </div>
             <div class="modal-body">
@@ -29,10 +29,10 @@
     public string Body { get; set; } = null!;
     
     [Parameter] 
-    public string? CancelLabel { get; set; } = null;
+    public string? CancelLabel { get; set; }
     
     [Parameter] 
-    public string? ConfirmLabel { get; set; } = null;
+    public string? ConfirmLabel { get; set; }
 
     [Parameter] 
     public BootstrapHelper.Color ConfirmButtonColor { get; set; } = BootstrapHelper.Color.Primary;

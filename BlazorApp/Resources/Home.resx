@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Description" xml:space="preserve">
-    <value>Welcome to my new Blazor App.</value>
+  <data name="GreetingDescription" xml:space="preserve">
+    <value>Welcome to my new Blazor WebAssembly App.</value>
   </data>
   <data name="Greeting" xml:space="preserve">
     <value>Hello, stranger!</value>

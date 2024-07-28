@@ -22,14 +22,14 @@ namespace BlazorApp.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Settings {
+    public class About {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Settings() {
+        internal About() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace BlazorApp.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BlazorApp.Resources.Settings", typeof(Settings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BlazorApp.Resources.About", typeof(About).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,43 +61,34 @@ namespace BlazorApp.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Are you sure?.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu This app can do anything..
         /// </summary>
-        public static string AreYouSure {
+        public static string AppDescription {
             get {
-                return ResourceManager.GetString("AreYouSure", resourceCulture);
+                return ResourceManager.GetString("AppDescription", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Clear Settings.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Description.
         /// </summary>
-        public static string ClearSettings {
+        public static string Description {
             get {
-                return ResourceManager.GetString("ClearSettings", resourceCulture);
+                return ResourceManager.GetString("Description", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Stored settings will be removed and the application will return to its initial state..
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu made by.
         /// </summary>
-        public static string ClearSettingsModalDescription {
+        public static string MadeBy {
             get {
-                return ResourceManager.GetString("ClearSettingsModalDescription", resourceCulture);
+                return ResourceManager.GetString("MadeBy", resourceCulture);
             }
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Language.
-        /// </summary>
-        public static string Language {
-            get {
-                return ResourceManager.GetString("Language", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Settings.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu About.
         /// </summary>
         public static string PageTitle {
             get {
@@ -106,20 +97,11 @@ namespace BlazorApp.Resources {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Purge.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu with ❤️.
         /// </summary>
-        public static string Purge {
+        public static string WithLove {
             get {
-                return ResourceManager.GetString("Purge", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Theme.
-        /// </summary>
-        public static string Theme {
-            get {
-                return ResourceManager.GetString("Theme", resourceCulture);
+                return ResourceManager.GetString("WithLove", resourceCulture);
             }
         }
     }

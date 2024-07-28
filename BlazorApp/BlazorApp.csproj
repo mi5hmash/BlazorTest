@@ -29,10 +29,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Resources\About.Designer.cs">
+	    <DependentUpon>About.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
 	  <Compile Update="Resources\Home.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Home.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Resources\LoadingComponent.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>LoadingComponent.resx</DependentUpon>
 	  </Compile>
 	  <Compile Update="Resources\ModalDialog.Designer.cs">
 	    <DesignTime>True</DesignTime>
@@ -52,6 +62,14 @@
 	</ItemGroup>
 	
 	<ItemGroup>
+	  <EmbeddedResource Update="Resources\About.resx">
+	    <LastGenOutput>About.Designer.cs</LastGenOutput>
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\LoadingComponent.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>LoadingComponent.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	  <EmbeddedResource Update="Resources\ModalDialog.resx">
 	    <LastGenOutput>ModalDialog.Designer.cs</LastGenOutput>
 	    <Generator>PublicResXFileCodeGenerator</Generator>

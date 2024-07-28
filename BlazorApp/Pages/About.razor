@@ -1,32 +1,19 @@
 ﻿@page "/about"
-@code { private const string PageTitle = "About"; }
+@inject IStringLocalizer<Resources.About> Loc
 
-<PageTitle>@PageTitle</PageTitle>
+<PageTitle>@Loc["PageTitle"]</PageTitle>
 
-@if (!_pageInitialized)
-{
-    <LoadingPopup Message="Loading component..."/>
-}
-else
-{
-    <h1>@PageTitle</h1>
+<h1>@Loc["PageTitle"]</h1>
 
-    <div class="card">
-        <div class="card-body">
-            <div class="mb-2">
-                <p class="mb-1"><span class="h5">@AppInfo.Title</span> <span class="text-body-secondary">@($"v{AppInfo.Version}")</span></p>
-                <p class="text-body-secondary">made by <strong>@AppInfo.Author</strong> with ❤️!</p>
-            </div>
-            <div class="mb-2">
-                <p class="mb-1">Description</p>
-                <p class="text-body-secondary">@AppInfo.Description</p>
-            </div>
+<div class="card">
+    <div class="card-body">
+        <div class="mb-2">
+            <p class="mb-1"><span class="h5">@AppInfo.Title</span> <span class="text-body-secondary">@($"v{AppInfo.Version}")</span></p>
+            <p class="text-body-secondary">@Loc["MadeBy"] <strong>@AppInfo.Author</strong> @Loc["WithLove"]!</p>
+        </div>
+        <div class="mb-2">
+            <p class="mb-1">@Loc["Description"]</p>
+            <p class="text-body-secondary">@Loc["AppDescription"]</p>
         </div>
     </div>
-}
-
-@code {
-
-    private readonly bool _pageInitialized = true;
-
-}
+</div>

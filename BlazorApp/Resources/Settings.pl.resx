@@ -129,9 +129,6 @@
   <data name="Language" xml:space="preserve">
     <value>Język</value>
   </data>
-  <data name="LoadingComponent" xml:space="preserve">
-    <value>Wczytywanie komponentu...</value>
-  </data>
   <data name="PageTitle" xml:space="preserve">
     <value>Ustawienia</value>
   </data>
