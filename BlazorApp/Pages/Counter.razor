@@ -1,8 +1,8 @@
 ﻿@page "/counter"
 @inject WebStorageManagerService WebStorageManager
-@code { private const string PageTitle = "Counter"; }
+@inject IStringLocalizer<Resources.Counter> Loc
 
-<PageTitle>@PageTitle</PageTitle>
+<PageTitle>@Loc["PageTitle"]</PageTitle>
 
 @if (!_pageInitialized)
 {
@@ -10,26 +10,26 @@
 }
 else
 {
-    <h1>@PageTitle</h1>
+    <h1>@Loc["PageTitle"]</h1>
 
-    <p class="h5 my-3" role="status">Value: <strong>@_counterValueV</strong></p>
+    <p class="h5 my-3" role="status">@Loc["Value"]: <strong>@_counterValueV</strong></p>
 
     <div class="d-flex gap-3 flex-wrap">
         <div class="d-flex gap-2">
-            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(Step1)">+@Step1</button>
-            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(Step2)">+@Step2</button>
-            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(Step3)">+@Step3</button>
-            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(Step4)">+@Step4</button>
+            <button class="btn btn-primary" title="@Loc["Add"] @Step1" type="button" @onclick="() => IncrementValue(Step1)">+@Step1</button>
+            <button class="btn btn-primary" title="@Loc["Add"] @Step2" type="button" @onclick="() => IncrementValue(Step2)">+@Step2</button>
+            <button class="btn btn-primary" title="@Loc["Add"] @Step3" type="button" @onclick="() => IncrementValue(Step3)">+@Step3</button>
+            <button class="btn btn-primary" title="@Loc["Add"] @Step4" type="button" @onclick="() => IncrementValue(Step4)">+@Step4</button>
         </div>
         
         <div class="input-group">
-            <button class="btn btn-primary" type="button" @onclick="() => IncrementValue(_step5)"><i class="bi bi-plus-circle"></i></button>
+            <button class="btn btn-primary" type="button" title="@Loc["Add"] @_step5" @onclick="() => IncrementValue(_step5)"><i class="bi bi-plus-circle"></i></button>
             <input class="form-control" style="max-width:175px;" maxlength="10" type="number" min="@uint.MinValue" max="@uint.MaxValue" @bind="_step5">
         </div>
         
         <div>
-            <button class="btn btn-secondary" @onclick="ClearCount">Clear</button>
-            <button class="btn btn-danger" @onclick="ThrowException">Throw Exception</button>
+            <button class="btn btn-secondary" @onclick="ClearCount">@Loc["Clear"]</button>
+            <button class="btn btn-danger" @onclick="ThrowException">@Loc["ThrowException"]</button>
         </div>
     </div>
 }
@@ -72,10 +72,10 @@ else
     {
         _counterValueV = 0;
         await WebStorageManager.SetLocalStorageSecuredItemAsync(CounterValueK, _counterValueV);
-    }    
-    
-    private static void ThrowException()
-        => throw new ArgumentException("You pressed the wrong button.");
+    }
+
+    private void ThrowException()
+        => throw new ArgumentException($"{Loc["WrongButtonException"]}.");
 
     #endregion
 }
