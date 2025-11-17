@@ -1,0 +1,105 @@
+﻿@inject WebStorageManagerService WebStorageManager
+
+<style>.sb-logo{display:flex;align-items:center;padding:10px}.sb-logo-img{width:48px;cursor:pointer}.sb-logo-text{margin-left:10px;font-size:1.2em;font-weight:bold;white-space:nowrap}.sb-nav-links{flex-grow:1;padding:10px 0;overflow-y:auto}.sb-nav-link{display:flex;align-items:center;text-decoration:none;border-radius:var(--bs-border-radius);margin:.25rem}.sb-nav-link i{font-size:20px;padding:10px 15px}.sb-nav-link span{white-space:nowrap}.sb-nav-link.active,.sb-nav-link:hover{background-color:var(--bs-primary)!important;color:var(--bs-white)}</style>
+
+<nav class="bg-body-tertiary d-flex flex-column @(_isNavMenuCollapsedV ? "collapsed" : "")">
+    <div class="sb-logo">
+        <img src="resources\logo.svg" alt="App Logo" class="sb-logo-img" title="Toggle navigation" @onclick="ToggleSidebar">
+        @if (!_isNavMenuCollapsedV)
+        {
+            <span class="sb-logo-text">@AppInfo.Title</span>
+        }
+    </div>
+    <hr class="mx-1 my-2">
+    <div class="flex-grow-1 overflow-x-hidden overflow-y-auto">
+        @foreach (var link in _navigationLinks)
+        {
+            <NavLink class="@NavLinkCssClass" href="@link.Href" Match="NavLinkMatch.All" title="@InsertTitle(link.Title)">
+                <i class="@link.Icon.BootstrapIcon()"></i>
+                @if (!_isNavMenuCollapsedV)
+                {
+                    <span>@link.Title</span>
+                }
+            </NavLink>
+        }
+    </div>
+    <hr class="mx-1 my-2">
+    <div>
+        @foreach (var link in _footerLinks)
+        {
+            <NavLink class="@NavLinkCssClass" href="@link.Href" Match="NavLinkMatch.All" title="@InsertTitle(link.Title)">
+                <i class="@link.Icon.BootstrapIcon()"></i>
+                @if (!_isNavMenuCollapsedV)
+                {
+                    <span>@link.Title</span>
+                }
+            </NavLink>
+        }
+    </div>
+</nav>
+
+@code {
+    #region Settings
+
+    // Main Navigation Links
+    private readonly List<NavLinkItem> _navigationLinks =
+    [
+        new NavLinkItem("Home", "house-door-fill", ""),
+        new NavLinkItem("Counter", "123", "counter"),
+        new NavLinkItem("Weather", "cloud-sun-fill", "weather")
+        // add new pages here
+    ];
+
+    // Footer Navigation Links
+    private readonly List<NavLinkItem> _footerLinks = 
+    [
+        new NavLinkItem("About", "question-circle", "about"),
+        new NavLinkItem("Settings", "gear-fill", "settings")
+    ];
+
+    // Navigation Menu Collapse State
+    private const string IsNavMenuCollapsedK = "isNavMenuCollapsed";
+    private bool _isNavMenuCollapsedV;
+
+    #endregion
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Initialize WebStorageManager
+        await WebStorageManager.InitializeAsync();
+        // Get values from the web storage
+        _isNavMenuCollapsedV = await WebStorageManager.GetLocalStorageItemAsync(IsNavMenuCollapsedK, false);
+    }
+
+    #region Helpers
+    
+    private string InsertTitle(string title)
+        => _isNavMenuCollapsedV ? title : string.Empty;
+    
+    private string NavLinkCssClass => _isNavMenuCollapsedV ? "sb-nav-link justify-content-center" : "sb-nav-link";
+
+    #endregion
+
+    #region Actions
+
+    private async Task ToggleSidebar()
+    {
+        _isNavMenuCollapsedV ^= true;
+        await WebStorageManager.SetLocalStorageItemAsync(IsNavMenuCollapsedK, _isNavMenuCollapsedV);
+    }
+
+    #endregion
+
+    /// <summary>
+    /// Model of the navigation link item.
+    /// </summary>
+    /// <param name="title"></param>
+    /// <param name="icon"></param>
+    /// <param name="href"></param>
+    public class NavLinkItem(string title, string icon, string href)
+    {
+        public string Title { get; set; } = title;
+        public string Icon { get; set; } = icon;
+        public string Href { get; set; } = href;
+    }
+}
